@@ -1,4 +1,4 @@
-![image](https://github.com/tuhota/internship/assets/109631279/2b41ea07-1678-4d93-a3c1-c30d3f3a03ee)# 1. Prepare ARP
+1. Prepare ARP
 
 <br>
 
