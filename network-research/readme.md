@@ -93,6 +93,10 @@ We then set up the static route to direct the packets with the routing marks to 
 
 
 
+
+
+
+
 <img width="514" alt="networkexample" src="https://github.com/tuhota/internship/assets/109631279/0aefa9c4-719f-470a-9fef-d798d1bb55c7">
 
 
