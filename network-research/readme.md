@@ -1,4 +1,4 @@
-# 1. Prepare ARP
+![image](https://github.com/tuhota/internship/assets/109631279/2b41ea07-1678-4d93-a3c1-c30d3f3a03ee)# 1. Prepare ARP
 
 <br>
 
@@ -35,6 +35,23 @@ Note the entry is not flagged with D (dynamic)
 <br>
 
 # 2. NAT setup
+
+To setup the basic configuation for NAT we used 
+	/ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade.
+	This changes the outgoing packets leaving the rounter on the ether1 interface.	
+	To confirm that we have NAT available, we put /ip firewall nat print in the terminal to look for 
+	the chain-srcnat and action=masquerade.
+	By doing this we would be able to access the internet.	
+	For a specific port and address we can go to IP -> Firewall -> NAT tab then you can add a NAT
+	and you can decide what type of connection you want (tcp or udp), and also change the destination and 
+	source IP and ports. 
+	You can also change the chain to dstnat.
+
+<img width="311" alt="details" src="https://github.com/tuhota/internship/assets/109631279/8a0ae422-8be6-4b65-9e8d-8a9e4a7eead6">
+
+
+<img width="670" alt="NAT" src="https://github.com/tuhota/internship/assets/109631279/50e122f9-5e70-4474-8fee-f6b1ecd40a4d">
+
 
 
 
