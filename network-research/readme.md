@@ -5,7 +5,7 @@ To create a static mapping, we first need to disable dynamic ARP, and therefore 
 
 `> interface > ethernet > edit [INTERFACE] > arp > [MODIFY value to disabled]`
 
-![interface](interface.png)
+![interface](staticfiles/interface.png)
 
 (we disable this on the ether2 connection to client)
 
@@ -15,7 +15,7 @@ In the client machine we create a static ARP entry, featuring the router's IP an
 
 `C:\> arp -s 192.168.88.1  79-9a-18-39-86-c7`
 
-![client](cmdcommand.PNG)
+![client](staticfiles/cmdcommand.PNG)
 
 And in the router we create an entry for the reverse:
 
@@ -25,9 +25,9 @@ And in the router we create an entry for the reverse:
 
 `edit [ENTRY] mac (replace with client MAC address)`
 
-![addr](addr.png)
+![addr](staticfiles/addr.png)
 
-![arp print](arp.png)
+![arp print](staticfiles/arp.png)
 
 Note the entry is not flagged with D (dynamic)
 
@@ -62,28 +62,29 @@ First, we ensure the correct IPs are set up for each incoming connection to the 
 
 Second, we begin to add firewall mangle rules, basically markers for packets that identify them for future processing: Our policy routing utilies the prerouting chain, we add two rules with our destination addresses and the accept action to force traffic into specified gateways.
 
-![2](2.png)
+![2](staticfiles/2.png)
 
 Third, we create four rules with the mark-connection action, for the two ISP interfaces, then the LAN interface with the per-connection-classifier flag to divide the traffic based on the result of a division operation. This is to ensure we balance the load across both ISP interfaces and to ensure packets entering the network leave via the same gateway (and therefore public IP).
 
-3
-4
+![3](staticfiles/3.png)
+![4](staticfiles/4.png)
 
 Fourth, we add four rules with the mark-routing action, two in the prerouting chain will apply the connection mark. And two in the output chain will apply a new routing mark to specify the outbound interface.
 
-5
+![5](staticfiles/5.png)
+
 
 Fifth, the ip routes are modified to include a route for each routing mark.
 
-7
+![7](staticfiles/7.png)
 
 Sixth, two more ip routes are created with heirarchical distances specified to enable failover in case of one connection dropping.
 
-8
+![8](staticfiles/8.png)
 
 Finally, the firewall nat rules are modified to ensure the NAT is activated to select the correct IP for the specified outbound interface.
 
-9
+![9](staticfiles/9.png)
 
 <br>
 # 4. Static routing
@@ -91,12 +92,7 @@ Finally, the firewall nat rules are modified to ensure the NAT is activated to s
 We first had to set you a second WAN to be able to act as a way to set up the static routing. We then set up a firewall mangle to be able mark the packets, then we set up the routing mark for the packets.
 We then set up the static route to direct the packets with the routing marks to go through the designated WAN gateway. We also needed to make sure that we had the masquerade rule under the NAT for the WAN interface to make sure it could handle the source NAT for outgoing packets.
 
-<p></p>
-
 <img width="514" alt="networkexample" src="https://github.com/tuhota/internship/assets/109631279/0aefa9c4-719f-470a-9fef-d798d1bb55c7">
 
 
 <img width="385" alt="config" src="https://github.com/tuhota/internship/assets/109631279/e1787dcc-2b19-43a8-a9b6-cfd9705580a1">
-
-
-
