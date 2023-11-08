@@ -46,12 +46,9 @@ To setup the basic configuation for NAT we used
 	source IP and ports. 
 	You can also change the chain to dstnat.
 
-<img width="311" alt="details" src="https://github.com/tuhota/internship/assets/109631279/8a0ae422-8be6-4b65-9e8d-8a9e4a7eead6">
+![details](staticfiles/details.PNG)
 
-
-<img width="670" alt="NAT" src="https://github.com/tuhota/internship/assets/109631279/50e122f9-5e70-4474-8fee-f6b1ecd40a4d">
-
-
+![NAT](staticfiles/NAT.PNG)
 
 <br>
 # 3. Load balancing
@@ -92,7 +89,6 @@ Finally, the firewall nat rules are modified to ensure the NAT is activated to s
 We first had to set you a second WAN to be able to act as a way to set up the static routing. We then set up a firewall mangle to be able mark the packets, then we set up the routing mark for the packets.
 We then set up the static route to direct the packets with the routing marks to go through the designated WAN gateway. We also needed to make sure that we had the masquerade rule under the NAT for the WAN interface to make sure it could handle the source NAT for outgoing packets.
 
-<img width="514" alt="networkexample" src="https://github.com/tuhota/internship/assets/109631279/0aefa9c4-719f-470a-9fef-d798d1bb55c7">
+![networkexample](staticfiles/networkexample.PNG)
 
-
-<img width="385" alt="config" src="https://github.com/tuhota/internship/assets/109631279/e1787dcc-2b19-43a8-a9b6-cfd9705580a1">
+![config](staticfiles/config.PNG)
