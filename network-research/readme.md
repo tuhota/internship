@@ -31,3 +31,16 @@ And in the router we create an entry for the reverse:
 ![arp print](arp.png)
 
 Note the entry is not flagged with D (dynamic)
+
+<br>
+
+# 2. NAT setup
+
+
+
+# 3. Load balancing
+
+There are multiple methods that can be employed for load balancing we chose PCC (per-connection-classifier) as this can be configured on the one router. We don't have access to multiple WAN connections but the example shows how we would divide traffic based on src-address:
+
+
+
