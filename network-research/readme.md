@@ -60,4 +60,7 @@ To setup the basic configuation for NAT we used
 There are multiple methods that can be employed for load balancing we chose PCC (per-connection-classifier) as this can be configured on the one router. We don't have access to multiple WAN connections but the example shows how we would divide traffic based on src-address:
 
 
+# 4. Static routing
 
+We first had to set you a second WAN to be able to act as a way to set up the static routing. We then set up a firewall mangle to be able mark the packets, then we set up the routing mark for the packets.
+We then set up the static route to direct the packets with the routing marks to go through the designated WAN gateway
