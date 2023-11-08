@@ -91,11 +91,7 @@ Finally, the firewall nat rules are modified to ensure the NAT is activated to s
 We first had to set you a second WAN to be able to act as a way to set up the static routing. We then set up a firewall mangle to be able mark the packets, then we set up the routing mark for the packets.
 We then set up the static route to direct the packets with the routing marks to go through the designated WAN gateway. We also needed to make sure that we had the masquerade rule under the NAT for the WAN interface to make sure it could handle the source NAT for outgoing packets.
 
-
-
-
-
-
+<p></p>
 
 <img width="514" alt="networkexample" src="https://github.com/tuhota/internship/assets/109631279/0aefa9c4-719f-470a-9fef-d798d1bb55c7">
 
